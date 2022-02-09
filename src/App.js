@@ -11,8 +11,10 @@ function App() {
   return (
     <div>
       <Header />
+      <div className='bg-blue-50'>
       <Profile />
       <Footer />
+      </div>
     </div>
   );
 }
@@ -100,7 +102,7 @@ function Header(){
 
 function Profile(){
   return(
-    <div className='bg-blue-50 py-5 md:py-20'>
+    <div className='py-5 md:py-20 animate-slide-in-bottom'>
       <div className='flex flex-wrap gap-x-5 ml-5 mr-5 md:ml-64'>
         <img src={pavanImg} className='profilepic' alt='pavan profilr pic' />
         <div>
@@ -116,11 +118,27 @@ function Profile(){
 
 function Footer(){
   return(
-    <div style={{paddingLeft:"70%"}} className='bg-blue-50 flex gap-x-2 py-2'>
-    <LinkdinIcon />
-    <FaceboookIcon />
-    <InstagramIcon />
-    <TwitterIcon />
+    <div className='mt-10 animate-slide-in-bottom'>
+      <hr className='border-y-2 mx-16' />
+      <div className='mt-2 ml-16 flex gap-x-48 mb-2 py-5 pb-16'>
+      <div>
+        <p>Phone</p>
+        <p>+91 855910132</p>
+      </div>
+      <div>
+        <p>Email</p>
+        <p>pavanguntupally12@gmail.com</p>
+      </div>
+      <div>
+        <p>Follow Me</p>
+        <p className='flex gap-x-4'><LinkdinIcon /><TwitterIcon /></p>
+      </div>
+      <div>
+        <p>© 2022.</p>
+        <p>Proudly created by Pavan Kumar </p>
+      </div>
+    
+    </div>
     </div>
   )
 }
