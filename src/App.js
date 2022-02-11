@@ -9,9 +9,9 @@ import {InstagramIcon} from "./icons/instagram"
 
 function App() {
   return (
-    <div>
+    <div className='bg-blue-50 lg:h-screen'>
       <Header />
-      <div className='bg-blue-50'>
+      <div>
       <Profile />
       <Footer />
       </div>
@@ -24,7 +24,7 @@ function Header(){
   const [isMenuClicked,setMenuClicked] = useState(false)
   return(
     <>
-      <nav className="relative px-4 py-4 flex justify-between bg-blue-50 items-center">
+      <nav className="relative px-4 py-4 flex justify-between items-center">
         <div className='flex items-center gap-x-2' >
           <div className='p-4 bg-red-300 rounded-full inline-block'></div>
           <a href="/" className="w-42 icon lin text-2xl font-semibold inline-block">Pavan Kumar</a>
@@ -102,8 +102,8 @@ function Header(){
 
 function Profile(){
   return(
-    <div className='py-5 md:py-20 animate-slide-in-bottom'>
-      <div className='flex flex-wrap gap-x-5 ml-4 mr-5 md:ml-64'>
+    <div className='py-5 bg-blue-50 lg:py-28 md:py-16 animate-slide-in-bottom'>
+      <div className='flex flex-wrap gap-x-5 ml-4 mr-5 md:ml-64 lg:ml-96'>
         <img src={pavanImg} className='profilepic' alt='pavan profilr pic' />
         <div>
           <p className='font-semibold text-8xl md:pt-4'>Hello</p>
@@ -123,9 +123,9 @@ function Profile(){
 
 function Footer(){
   return(
-    <div className='mt-10 animate-slide-in-bottom'>
+    <div className='pt- bg-blue-50 animate-slide-in-bottom'>
       <hr className='border-y-2 mx-4 md:mx-16' />
-      <div className='mt-2 mx-4 md:ml-16 flex flex-wrap gap-y-10 gap-x-48 mb-2 py-5 pb-16'>
+      <div className='mt-2 mx-4 md:ml-16 flex flex-wrap gap-y-10 gap-x-48 lg:gap-x-72 mb-2 py-5 pb-16'>
       <div>
         <p>Phone</p>
         <p>+91 855910132</p>
