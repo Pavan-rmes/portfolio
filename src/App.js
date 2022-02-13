@@ -1,24 +1,74 @@
 import './App.css';
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import pavanImg from "./pavan.jpg"
 import { CloseIcon } from './icons/CloseIcon';
 import {LinkdinIcon} from "./icons/linkdin"
 import {FaceboookIcon} from "./icons/facebook"
 import {TwitterIcon} from "./icons/twitter"
 import {InstagramIcon} from "./icons/instagram"
+import {GithubIcon} from "./icons/Github"
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
+  useEffect(()=>{
+    document.body.scrollTop=0;
+  },[])
   return (
-    <div className='bg-blue-50 lg:h-screen'>
+    <div className='bg-orange-50 lg:h-screen'>
       <Header />
-      <div>
-      <Profile />
+      <div className='bg-orange-50'>
+      <Switch>
+        <Route exact path="/">
+          <Profile />
+        </Route>
+        <Route exact path="/resume">
+          <Resume />
+        </Route>
+      </Switch>
       <Footer />
       </div>
     </div>
   );
 }
 
+
+function Resume(){
+  return(
+    <div className='animate-slide-in-fwd-center bg-orange-50 ml-4 md:mx-96'>
+      <p className='font-bold text-4xl mt-20'>
+        Resume
+      </p>
+      <ResumeCategory />
+      <hr className='w-full border border-black' />
+      <ResumeCategory />
+    </div>
+  )
+}
+
+function ResumeCategory(){
+  return(
+    <div className='mb-20 mt-10 md:mt-20 flex gap-y-10 flex-wrap'>
+        <p className='font-bold text-2xl md:text-3xl w-48'>Work Experience</p>
+        <div className='ml-auto'>
+        <ResumeData />
+        <ResumeData />
+        <ResumeData />
+        </div>
+      </div>
+  )
+}
+
+function ResumeData(){
+  return(
+    <div className='flex gap-x-10 mb-10 flex-wrap'>
+      <p className='text-m font-thin'>2020 - Present</p>
+      <div className='flex flex-col gap-y-2'>
+        <p className='font-bold text-l'>Editor</p>
+        <p className='w-72'>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.</p>
+      </div>
+    </div>
+  )
+}
 
 function Header(){
   const [isMenuClicked,setMenuClicked] = useState(false)
@@ -44,8 +94,7 @@ function Header(){
         </button>
       </div>
       <ul style={{marginLeft:"60%"}} className="hidden links transform  lg:flex  lg:flex lg:items-center lg:w-auto lg:space-x-6">
-        <li><a className="font-medium text-gray-500 hover:text-gray-900" href="/">About me</a></li>
-        <li><a className="font-medium text-gray-500 hover:text-gray-900 " href="/#features">Resume </a></li>
+        <li><a className="font-medium text-gray-500 hover:text-gray-900 " href="/resume">Resume </a></li>
         <li><a className="font-medium text-gray-500 hover:text-gray-900" href="#">Projects</a></li>
         <li><a className="font-medium text-gray-500 hover:text-gray-900" href="blog">Contact</a></li>
       </ul>
@@ -102,7 +151,7 @@ function Header(){
 
 function Profile(){
   return(
-    <div className='py-5 bg-blue-50 lg:py-28 md:py-16 animate-slide-in-bottom'>
+    <div className='py-5 bg-orange-50 lg:py-28 md:py-16 animate-slide-in-fwd-center'>
       <div className='flex flex-wrap gap-x-5 ml-4 mr-5 md:ml-64 lg:ml-96'>
         <img src={pavanImg} className='profilepic' alt='pavan profilr pic' />
         <div>
@@ -110,9 +159,9 @@ function Profile(){
           <p style={{fontFamily:"Poppins"}} className='font-semibold font-sans text-l px-2 mb-2 md:mt-4'>A Bit About Me</p>
           <p style={{fontFamily:"Poppins"}} className='px-2'>I am Pavan.A science Freak<br />Always ready to learn new Technologies.</p>
           <div className='flex flex-wrap gap-y-4 mt-4 gap-x-4'>
-            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-yellow-400'>Resume</div>
-            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-red-400'>Projects</div>
-            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-green-400'>Contact</div>
+            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-yellow-500'>Resume</div>
+            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-red-500'>Projects</div>
+            <div className='p-10 py-14 border cursor-pointer border-black rounded-full bg-blue-500'>Contact</div>
         </div>
         </div>
       </div>
@@ -123,7 +172,7 @@ function Profile(){
 
 function Footer(){
   return(
-    <div className='pt- bg-blue-50 animate-slide-in-bottom'>
+    <div className='pt- bg-orange-50'>
       <hr className='border-y-2 mx-4 md:mx-16' />
       <div className='mt-2 mx-4 md:ml-16 flex flex-wrap gap-y-10 gap-x-48 lg:gap-x-72 mb-2 py-5 pb-16'>
       <div>
@@ -136,7 +185,10 @@ function Footer(){
       </div>
       <div>
         <p>Follow Me</p>
-        <p className='flex gap-x-4'><LinkdinIcon /><TwitterIcon /></p>
+        <p className='flex gap-x-4'>
+          <a href='https://www.linkedin.com/in/pavan-kumar-guntupalli-6436aa130' target="_blank" ><LinkdinIcon  /></a>
+          <a href='https://github.com/Pavan-rmes?tab=repositories' target="_blank" ><GithubIcon /></a>
+        </p>
       </div>
       <div>
         <p>© 2022.</p>
@@ -148,5 +200,6 @@ function Footer(){
   )
 }
 
+//https://www.linkedin.com/in/pavan-kumar-guntupalli-6436aa130
 
 export default App;
