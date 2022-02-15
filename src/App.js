@@ -10,9 +10,6 @@ import {GithubIcon} from "./icons/Github"
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
-  useEffect(()=>{
-    document.body.scrollTop=0;
-  },[])
   return (
     <div className='bg-orange-50 lg:h-screen'>
       <Header />
