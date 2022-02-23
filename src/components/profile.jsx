@@ -30,7 +30,7 @@ export function Header() {
         <ul style={{ marginLeft: "60%" }} className="hidden links transform  lg:flex  lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li><a className="font-medium text-gray-500 hover:text-gray-900 cursor-pointer " onClick={() => history.push("/resume")}>Resume </a></li>
           <li><a className="font-medium text-gray-500 hover:text-gray-900 cursor-pointer" onClick={() => history.push("/projects")}>Projects</a></li>
-          <li><a className="font-medium text-gray-500 hover:text-gray-900" href="blog">Contact</a></li>
+          <li><a className="font-medium text-gray-500 hover:text-gray-900 cursor-pointer" onClick={() => history.push("/contact")}>Contact</a></li>
         </ul>
       </nav>
       <div className={`navbar-menu relative z-50 ${isMenuClicked ? "block" : "hidden"}`}>
@@ -60,6 +60,7 @@ export function Header() {
               </li>
               <li className="mb-1">
                 <a
+                  onClick={() => {history.push("/contact");setMenuClicked(!isMenuClicked)}}
                   className="block p-4 text-m font-semibold text-gray-400 hover:text-gray-900 rounded"
                   href="#"
                 >Contact</a>
